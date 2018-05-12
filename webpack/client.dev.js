@@ -37,7 +37,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      components: path.resolve('src/components'),
+      Common: path.resolve('src/common'),
+      Components: path.resolve('src/components'),
     },
     modules: [path.resolve('src/'), 'node_modules'],
     extensions: ['.js', '.css', '.scss']

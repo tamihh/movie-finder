@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/tamih/.nvm/versions/node/v8.11.1/bin/node /usr/local/bin/yarn run start:dev
+  /Users/tamih/.nvm/versions/node/v8.11.1/bin/node /usr/local/bin/yarn add styled-components
 
 PATH: 
   /Users/tamih/.nvm/versions/node/v8.11.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -35,7 +35,7 @@ npm manifest:
     "homepage": "https://github.com/tamihh/react-starter#readme",
     "scripts": {
       "start": "npm run start:dev",
-      "start:dev": "webpack --config webpack/client.dev.js --open",
+      "start:dev": "webpack-dev-server --mode development --config webpack/client.dev.js --open",
       "clean": "rimraf buildClient dist",
       "build": "npm run clean && webpack --config webpack/client.prod.js --color -p",
       "lint:fix": "eslint --fix src webpack",
@@ -6648,14 +6648,4 @@ Lockfile:
       yeoman-environment "^2.0.5"
 
 Trace: 
-  Error: EACCES: permission denied, open '/Users/tamih/Library/Caches/Yarn/.roadrunner.json'
-      at Object.fs.openSync (fs.js:646:18)
-      at Object.fs.writeFileSync (fs.js:1299:33)
-      at /usr/local/Cellar/yarn/0.23.2/libexec/node_modules/roadrunner/index.js:25:6
-      at /usr/local/Cellar/yarn/0.23.2/libexec/node_modules/roadrunner/index.js:12:12
-      at emitOne (events.js:121:20)
-      at process.emit (events.js:211:7)
-      at processEmit [as emit] (/usr/local/Cellar/yarn/0.23.2/libexec/node_modules/signal-exit/index.js:149:35)
-      at process.exit (internal/process.js:157:15)
-      at exit (/usr/local/Cellar/yarn/0.23.2/libexec/lib/cli/index.js:426:13)
-      at <anonymous>
+  Error: EACCES: permission denied, mkdir '/Users/tamih/Library/Caches/Yarn/v1/npm-buffer-5.1.0-c913e43678c7cb7c8bd16afbcddb6c5505e8f9fe'
