@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Wrapper from 'Components/Wrapper';
 
-const HeaderComponent = styled.div`
+const HeaderContainer = styled.div`
   background: #00caa8;
   display: flex;
   align-items: center;
@@ -26,12 +26,12 @@ const HeaderComponent = styled.div`
 
 const Header = props => {
   return (
-    <HeaderComponent>
+    <HeaderContainer>
       <Wrapper>
         <h1 className="header-title">Movie Finder</h1>
         <h2 className="header-subtitle">Find your next favourite movie :) </h2>
       </Wrapper>
-    </HeaderComponent>
+    </HeaderContainer>
   );
 };
 
