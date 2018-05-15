@@ -26,7 +26,7 @@ class SearchInput extends Component {
           value={this.state.value} 
           onChange={this.handleChange.bind(this)}
         />
-        <Button onClick={() => this.props.action('harry')}>Search</Button>
+        <Button onClick={() => this.props.action(this.state.value)}>Search</Button>
       </SearchInputContainer>
     );
   }

@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 
+const Link = styled.a`
+  text-decoration: none;
+`
+
 const ListItemContainer = styled.li`
   border: 1px solid #e4e3e3;
   display: flex;
@@ -18,6 +22,10 @@ const ListItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.8rem;
+
+  .title{
+    color: #000
+  }
 `;
 
 const MetadataList = styled.ul`
@@ -31,17 +39,22 @@ const MetadataList = styled.ul`
   }
 `;
 
-const ListItem = props => {
+
+const ListItem = ({ data }) => {
+  const { Poster, Title, Type, Year, imdbID } = data;
+
   return (
     <ListItemContainer>
-      <ListItemImage/>
-      <ListItemContent>
-        <h3 className="title">title</h3>
-        <MetadataList>
-          <li className="item">movie</li>
-          <li className="item">2011</li>
-        </MetadataList>
-      </ListItemContent>
+      <Link href={`http://www.imdb.com/title/${imdbID}`} target="blank">
+        <ListItemImage src={Poster} alt={Title}/>
+        <ListItemContent>
+          <h3 className="title">{Title}</h3>
+          <MetadataList>
+            <li className="item">{Type}</li>
+            <li className="item">{Year}</li>
+          </MetadataList>
+        </ListItemContent>
+      </Link>
     </ListItemContainer>
   );
 };

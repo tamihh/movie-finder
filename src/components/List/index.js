@@ -10,12 +10,12 @@ const ListContainer = styled.ul`
   margin: 0;
 `;
 
-const List = ({ movies }) => {
+const List = ({ items }) => {
   return (
     <ListContainer>
-      {movies &&
-        movies.data.map((movie, index) => {
-          return <ListItem key={`movie-${index}`}/>
+      {items.data &&
+        items.data.map((data, index) => {
+          return <ListItem key={`item-${index}`} data={data}/>
         })
       }
     </ListContainer>

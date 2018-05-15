@@ -11,18 +11,18 @@ class Search extends Component {
   }
 
   render() {  
-    console.log(this.props.movies)  
+    console.log(this.props.searchMovies.movies)  
     return (
       <Fragment>
         <SearchInput action={this.searchMovieByTitle.bind(this)}/>
-        <List items={this.props.movies}/>
+        <List items={this.props.searchMovies.movies}/>
       </Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  movies: state.searchMovies
+  searchMovies: state.searchMovies
 });
 
 const mapDispatchToProps = {
