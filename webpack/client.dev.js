@@ -17,7 +17,6 @@ module.exports = {
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8000', // WebpackDevServer host and port
     'webpack/hot/only-dev-server',
     path.resolve(__dirname, '../src/index.js')
   ],
@@ -39,6 +38,8 @@ module.exports = {
     alias: {
       Common: path.resolve('src/common'),
       Components: path.resolve('src/components'),
+      Redux: path.resolve('src/redux'),
+      Services: path.resolve('src/services'),
     },
     modules: [path.resolve('src/'), 'node_modules'],
     extensions: ['.js', '.css', '.scss']
