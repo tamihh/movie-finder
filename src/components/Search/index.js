@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { loadMovies } from 'Redux/actions/movies'
 import SearchInput from '../SearchInput';
 import List from '../List';
+import Loading from '../Loading';
 
 class Search extends Component {
 
@@ -10,19 +11,27 @@ class Search extends Component {
     this.props.loadMovies(title);
   }
 
-  render() {  
-    console.log(this.props.searchMovies.movies)  
+  noResultMessage() {
+    return <p>No Movie Found</p>
+  }
+
+  render() { 
     return (
       <Fragment>
         <SearchInput action={this.searchMovieByTitle.bind(this)}/>
-        <List items={this.props.searchMovies.movies}/>
+        {
+          this.props.loadingMovies ? <Loading /> :
+          this.props.noResults ? this.noResultMessage() : <List items={this.props.loadedMovies.movies}/>
+        }
       </Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  searchMovies: state.searchMovies
+  loadedMovies: state.loadedMovies,
+  noResults: state.loadedMovies.noResults,
+  loadingMovies: state.loadedMovies.loadingMovies
 });
 
 const mapDispatchToProps = {
