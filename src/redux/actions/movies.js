@@ -19,9 +19,7 @@ export function loadMovies(term) {
 }
 
 export function getMovieData(result) {
-  const movies = result.data.filter(movie => {
-    return movie.Type === "movie"
-  })
+  const movies = result.data.filter(movie => movie.Type === "movie");
 
   return Object.assign({}, result, {data: movies});
 }

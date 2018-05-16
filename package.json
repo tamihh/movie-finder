@@ -10,6 +10,9 @@
   "author": "Tamiris Simoneli",
   "keywords": [
     "react",
+    "redux",
+    "styled components",
+    "webpack 4",
     "movie"
   ],
   "license": "ISC",

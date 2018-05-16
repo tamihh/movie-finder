@@ -7,8 +7,34 @@ import Loading from '../Loading';
 
 class Search extends Component {
 
-  searchMovieByTitle(title) {
-    this.props.loadMovies(title);
+  constructor() {
+    super();
+
+    this.state = {
+      searchTerm: ''
+    }
+  }
+
+  componentWillMount() {
+    let searchTerm = localStorage.getItem('searchTerm');
+    
+    if(searchTerm) {
+      this.props.loadMovies(searchTerm);
+      this.setState({ searchTerm })
+    }
+  }
+
+  handleLocalStorage(searchTerm) {
+    if(!this.props.noResults && searchTerm !== '') 
+      localStorage.setItem('searchTerm', searchTerm)
+    else
+      localStorage.removeItem('searchTerm');
+  }
+
+  handleSearch(searchTerm) {
+    this.props.loadMovies(searchTerm);
+    this.setState({ searchTerm })
+    this.handleLocalStorage(searchTerm);
   }
 
   noResultMessage() {
@@ -18,7 +44,8 @@ class Search extends Component {
   render() { 
     return (
       <Fragment>
-        <SearchInput action={this.searchMovieByTitle.bind(this)}/>
+        <SearchInput action={this.handleSearch.bind(this)}/>
+        {this.state.searchTerm ? <h3>Search results for: {this.state.searchTerm}</h3> : null}
         {
           this.props.loadingMovies ? <Loading /> :
           this.props.noResults ? this.noResultMessage() : <List items={this.props.loadedMovies.movies}/>

@@ -17,6 +17,12 @@ class SearchInput extends Component {
     this.setState({value: event.target.value});
   }
 
+  handleKeypres(event) {
+    if (event.which == 13) {
+      this.props.action(this.state.value);
+    }
+  }
+
   render() {
     return (
       <SearchInputContainer>
@@ -24,6 +30,7 @@ class SearchInput extends Component {
           type="search" 
           placeholder="Search Movies" 
           value={this.state.value} 
+          onKeyPress={this.handleKeypres.bind(this)}
           onChange={this.handleChange.bind(this)}
         />
         <Button onClick={() => this.props.action(this.state.value)}>Search</Button>
