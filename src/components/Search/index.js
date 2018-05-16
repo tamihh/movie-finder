@@ -24,6 +24,10 @@ class Search extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.handleLocalStorage(this.state.searchTerm)
+  }
+
   handleLocalStorage(searchTerm) {
     if(!this.props.noResults && searchTerm !== '') 
       localStorage.setItem('searchTerm', searchTerm)
@@ -34,7 +38,6 @@ class Search extends Component {
   handleSearch(searchTerm) {
     this.props.loadMovies(searchTerm);
     this.setState({ searchTerm })
-    this.handleLocalStorage(searchTerm);
   }
 
   noResultMessage() {
