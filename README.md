@@ -1,6 +1,7 @@
 # The movie finder
 
  A single page web application that allows you to search for movies.
+ [Demo](https://awesomemoviefinder.netlify.com)
 
  Built with: React 16, Webpack 4, Redux, Styled Components
 
