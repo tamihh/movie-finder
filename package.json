@@ -2,7 +2,7 @@
   "name": "react-starter",
   "version": "1.0.0",
   "description": "Simple React Starter boilerplate ",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/tamihh/react-starter.git"
@@ -22,9 +22,9 @@
   "homepage": "https://github.com/tamihh/react-starter#readme",
   "scripts": {
     "start": "npm run start:dev",
-    "start:dev": "webpack-dev-server --mode development --config webpack/client.dev.js --open",
+    "start:dev": "webpack-dev-server --mode development --config webpack.config.js --open",
     "clean": "rimraf buildClient dist",
-    "build": "npm run clean && webpack --config webpack/client.prod.js --color -p",
+    "build": "npm run clean && webpack --config webpack.config.js --color -p",
     "lint:fix": "eslint --fix src webpack",
     "lint": "eslint src webpack"
   },

@@ -18,7 +18,7 @@ module.exports = {
     'babel-polyfill',
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
-    path.resolve(__dirname, '../src/index.js')
+    path.resolve(__dirname, './src/index.js')
   ],
   output: {
     filename: '[name].js',
