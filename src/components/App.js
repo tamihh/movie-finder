@@ -9,9 +9,7 @@ const App = () => {
     <Fragment>
       <Header/>
       <main>
-        <Wrapper>
-          <Search/>
-        </Wrapper>
+        <Search/>
       </main>
     </Fragment>
   );

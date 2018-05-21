@@ -7,8 +7,11 @@ const baseStyles = () => injectGlobal`
   body, html {
     padding: 0;
     margin: 0;
-	  font-family: 'Helvetica', 'Arial', sans-serif;
+	  font-family: 'Lato', 'Arial', sans-serif;
+    overflow-x: hidden;
+    font-size: 10px;
 	}
+  
 `;
 
 export default baseStyles;

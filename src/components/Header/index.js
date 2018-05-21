@@ -1,39 +1,37 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Wrapper from 'Components/Wrapper';
+import Logo from 'Common/assets/images/logo.png';
 
-const HeaderContainer = styled.div`
-  background: #00caa8;
+const inputFocus = localStorage.getItem('inputFocus');
+
+const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  padding: 30px 0;
-
-  .header-title, 
-  .header-subtitle {
-    color: #fff;
-    margin: .5rem 0;
-    font-weight: normal;
-  }
-
-  .header-subtitle {
-    font-weight: lighter;
-    font-size: 1.2rem;
-  }
-
+  transition: all .25s ease;
+  padding: ${props => inputFocus || props.inputFocus ? '40px 0' : '25vh 0 40px 0'};
 `;
 
-const Header = props => {
+const Img = styled.img`
+  width: 80px;
+  transition: all .25s ease;
+  @media (min-width: 700px) {
+    width: ${props => inputFocus || props.inputFocus ? '90px' : '150px'};
+  }
+`;
+
+const Header = ({ inputFocus }) => {
   return (
-    <HeaderContainer>
-      <Wrapper>
-        <h1 className="header-title">Movie Finder</h1>
-        <h2 className="header-subtitle">Find your next favourite movie :) </h2>
-      </Wrapper>
+    <HeaderContainer inputFocus={inputFocus}>
+      <Img src={Logo} alt="Awesome movie finder" inputFocus={inputFocus} />
     </HeaderContainer>
   );
 };
 
+const mapStateToProps = state => ({ inputFocus: state.ui.inputFocus });
 
-export default Header;
+export default connect(mapStateToProps)(Header);

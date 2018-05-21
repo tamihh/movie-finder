@@ -6,6 +6,7 @@ const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
   color: #999999;
+  font-size: 1.6rem;
 `;
 
 const Spinner = styled.img`
